@@ -14,6 +14,14 @@ export const festivals = [
   { name:'Bhai Dooj', slug:'bhai-dooj', description:'Roli, akshat, and thoughtful festive sets.', image:'/product-art/bhai-dooj-set.svg' },
   { name:'Chhath', slug:'chhath', description:'Accessories for offering preparations and family rituals.', image:'/product-art/chhath-set.svg' },
 ]
+export const featuredFestivalSlug = 'navratri'
+export const festivalVisuals: Record<string, { src: string; alt: string; width: number; height: number }> = {
+  navratri: { src: '/images/festivals/navratri-hero.png', alt: 'Maa Durga with a lion, lamps, flowers, and a kalash', width: 1672, height: 941 },
+  dussehra: { src: '/images/festivals/dussehra-hero.png', alt: 'Rama with a bow among glowing diyas and festive flowers', width: 1672, height: 941 },
+  diwali: { src: '/images/festivals/diwali-hero.png', alt: 'Lakshmi and Ganesh idols surrounded by diyas and offerings', width: 1672, height: 941 },
+  'bhai-dooj': { src: '/images/festivals/bhai-dooj-hero.jpg', alt: 'Sister performing a Bhai Dooj tilak ritual with her brother', width: 768, height: 768 },
+  chhath: { src: '/images/festivals/chhath-hero.png', alt: 'Woman offering water to the sun beside a river with Chhath offerings', width: 1672, height: 941 },
+}
 const item = (id:string,name:string,category:string,categorySlug:string,price:number,unit:string,description:string,festivals:string[]):Product => ({ id, slug:id, name, category, categorySlug, price, unit, description, festivals, image:`/product-art/${id}.svg`, details:['Contents are illustrative and may vary by family and regional tradition.','Operational details will be confirmed before launch.'] })
 export const products:Product[] = [
  item('daily-kit','Daily Pooja Starter Kit','Pooja Kits','pooja-kits',699,'18 essentials','A thoughtful foundation for everyday worship.',['daily']),

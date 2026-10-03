@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import './redesign.css'
 import './enhancements.css'
+import './festival-heroes.css'
 
 export const metadata: Metadata = {
   title: 'DevaDwaar — Essentials for Every Sacred Occasion',

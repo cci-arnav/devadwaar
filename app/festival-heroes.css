@@ -1,0 +1,68 @@
+.festival-detail-hero,
+.featured-festival { position: relative; isolation: isolate; overflow: hidden; background: #4d1420; color: #fff6eb; }
+
+.festival-detail-hero { min-height: 420px; display: flex; align-items: center; }
+.festival-detail-hero-media,
+.festival-detail-hero-shade,
+.featured-festival-media,
+.featured-festival-shade { position: absolute; inset: 0; }
+.festival-detail-hero-media img,
+.featured-festival-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+.festival-detail-hero-shade { background: linear-gradient(90deg, rgba(54, 7, 18, .62) 0%, rgba(54, 7, 18, .32) 36%, transparent 67%); }
+.festival-detail-hero-copy { position: relative; z-index: 1; padding-top: 45px; padding-bottom: 45px; }
+.festival-detail-hero-copy > :not(.breadcrumbs) { max-width: 540px; }
+.festival-detail-hero .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 35px; color: #f7e5d5; }
+.festival-detail-hero .breadcrumbs a { text-decoration: underline; text-decoration-color: #f7e5d580; text-underline-offset: 4px; }
+.festival-detail-hero .eyebrow,
+.featured-festival .eyebrow { color: #f3c385; }
+.festival-detail-hero h1 { font-size: clamp(48px, 5vw, 70px); }
+.festival-detail-description { margin: 18px 0 25px; color: #fff2e7; font-size: 18px; line-height: 1.55; }
+.festival-detail-cta { width: fit-content; }
+.festival-detail-hero--bhai-dooj .festival-detail-hero-media { left: 42%; }
+.festival-detail-hero--bhai-dooj .festival-detail-hero-media img { position: absolute; right: 0; width: 220%; max-width: none; }
+.festival-detail-hero--bhai-dooj .festival-detail-hero-shade { background: linear-gradient(90deg, #4d1420 0%, #4d1420 42%, rgba(77, 20, 32, .25) 65%, transparent 82%); }
+
+.featured-festival { min-height: 320px; display: flex; align-items: center; margin-bottom: 28px; border: 1px solid #9c6d4c; border-radius: 5px; box-shadow: 0 12px 28px rgba(69, 24, 22, .12); }
+.featured-festival-shade { background: linear-gradient(90deg, rgba(54, 7, 18, .65), rgba(54, 7, 18, .25) 42%, transparent 73%); }
+.featured-festival-copy { position: relative; z-index: 1; width: min(520px, 48%); margin-left: clamp(26px, 5vw, 72px); padding: 30px 0; }
+.featured-festival-copy h3 { font-size: clamp(32px, 3.3vw, 48px); line-height: 1.08; }
+.featured-festival-copy > p:not(.eyebrow) { color: #fff2e7; font-size: 16px; line-height: 1.55; margin: 14px 0 22px; }
+.featured-festival .button,
+.festival-detail-hero .button { background: #efb47d; color: #481722; border-radius: 3px; font-weight: 600; }
+.featured-festival .button:hover,
+.festival-detail-hero .button:hover { background: #ffd09e; }
+#catalog { scroll-margin-top: 90px; }
+
+@media (max-width: 900px) {
+  .festival-detail-hero { min-height: 390px; }
+  .festival-detail-hero .breadcrumbs { margin-bottom: 28px; }
+  .festival-detail-hero-copy > :not(.breadcrumbs) { max-width: 390px; }
+  .festival-detail-hero-copy > .festival-detail-description { max-width: 340px; font-size: 16px; }
+  .featured-festival { min-height: 280px; }
+  .featured-festival-copy { width: 50%; }
+}
+
+@media (max-width: 650px) {
+  .festival-detail-hero,
+  .featured-festival { display: flex; flex-direction: column-reverse; align-items: stretch; }
+  .festival-detail-hero { min-height: 0; }
+  .festival-detail-hero-media,
+  .featured-festival-media { position: relative; inset: auto; height: clamp(210px, 58vw, 290px); overflow: hidden; flex: none; }
+  .festival-detail-hero-media img,
+  .featured-festival-media img { object-position: 72% center; }
+  .festival-detail-hero-shade,
+  .featured-festival-shade { display: none; }
+  .festival-detail-hero-copy { padding-top: 28px; padding-bottom: 30px; }
+  .festival-detail-hero .breadcrumbs { margin-bottom: 26px; font-size: 12px; gap: 7px; }
+  .festival-detail-hero .eyebrow { margin-bottom: 10px; }
+  .festival-detail-hero h1 { font-size: clamp(42px, 11vw, 52px); }
+  .festival-detail-description { margin: 12px 0 20px; }
+  .festival-detail-hero-copy > .festival-detail-description { max-width: none; }
+  .festival-detail-hero--bhai-dooj .festival-detail-hero-media { left: auto; width: 100%; }
+  .festival-detail-hero--bhai-dooj .festival-detail-hero-media img { width: 220%; }
+  .featured-festival { min-height: 0; }
+  .featured-festival-copy { width: auto; margin: 0; padding: 27px 23px 30px; }
+  .featured-festival-copy h3 { font-size: 34px; }
+  .featured-festival-copy > p:not(.eyebrow) { margin: 10px 0 18px; }
+}
+
