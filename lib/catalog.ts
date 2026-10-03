@@ -1,28 +1,33 @@
 export type Product = { id:string; slug:string; name:string; category:string; categorySlug:string; festivals:string[]; price:number; unit:string; description:string; image:string; details:string[] }
+
+const publicImage = (path: string) => (path.startsWith('/') ? path : `/${path}`)
+const productArt = (name: string) => publicImage(`/product-art/${name}.svg`)
+const festivalArt = (name: string) => publicImage(`/images/festivals/${name}`)
+
 export const categories = [
-  { name:'Pooja Kits', slug:'pooja-kits', description:'Thoughtfully gathered essentials for a complete ritual.', image:'/product-art/daily-kit.svg' },
-  { name:'Prasad & Bhog', slug:'prasad-bhog', description:'Ingredients for offering and sharing at home.', image:'/product-art/panchmeva.svg' },
-  { name:'Dhoop & Incense', slug:'dhoop-incense', description:'Fragrant essentials for quiet moments.', image:'/product-art/agarbatti.svg' },
-  { name:'Diyas & Lamps', slug:'diyas-lamps', description:'Light your altar with timeless forms.', image:'/product-art/diyas.svg' },
-  { name:'Daily Essentials', slug:'daily-essentials', description:'The small samagri pieces every altar needs.', image:'/product-art/kumkum.svg' },
-  { name:'Gifts', slug:'gifts', description:'Simple gestures for sacred celebrations.', image:'/product-art/gift-box.svg' },
+  { name:'Pooja Kits', slug:'pooja-kits', description:'Thoughtfully gathered essentials for a complete ritual.', image: productArt('daily-kit') },
+  { name:'Prasad & Bhog', slug:'prasad-bhog', description:'Ingredients for offering and sharing at home.', image: productArt('panchmeva') },
+  { name:'Dhoop & Incense', slug:'dhoop-incense', description:'Fragrant essentials for quiet moments.', image: productArt('agarbatti') },
+  { name:'Diyas & Lamps', slug:'diyas-lamps', description:'Light your altar with timeless forms.', image: productArt('diyas') },
+  { name:'Daily Essentials', slug:'daily-essentials', description:'The small samagri pieces every altar needs.', image: productArt('kumkum') },
+  { name:'Gifts', slug:'gifts', description:'Simple gestures for sacred celebrations.', image: productArt('gift-box') },
 ]
 export const festivals = [
-  { name:'Navratri', slug:'navratri', description:'Kalash, chunri, and essentials for nine sacred days.', image:'/product-art/navratri-kit.svg' },
-  { name:'Dussehra', slug:'dussehra', description:'A considered poojan arrangement for the festival of victory.', image:'/product-art/hawan.svg' },
-  { name:'Diwali', slug:'diwali', description:'Diyas, Lakshmi–Ganesh essentials, and offerings.', image:'/product-art/diwali-kit.svg' },
-  { name:'Bhai Dooj', slug:'bhai-dooj', description:'Roli, akshat, and thoughtful festive sets.', image:'/product-art/bhai-dooj-set.svg' },
-  { name:'Chhath', slug:'chhath', description:'Accessories for offering preparations and family rituals.', image:'/product-art/chhath-set.svg' },
+  { name:'Navratri', slug:'navratri', description:'Kalash, chunri, and essentials for nine sacred days.', image: productArt('navratri-kit') },
+  { name:'Dussehra', slug:'dussehra', description:'A considered poojan arrangement for the festival of victory.', image: productArt('hawan') },
+  { name:'Diwali', slug:'diwali', description:'Diyas, Lakshmi–Ganesh essentials, and offerings.', image: productArt('diwali-kit') },
+  { name:'Bhai Dooj', slug:'bhai-dooj', description:'Roli, akshat, and thoughtful festive sets.', image: productArt('bhai-dooj-set') },
+  { name:'Chhath', slug:'chhath', description:'Accessories for offering preparations and family rituals.', image: productArt('chhath-set') },
 ]
 export const featuredFestivalSlug = 'navratri'
 export const festivalVisuals: Record<string, { src: string; alt: string; width: number; height: number }> = {
-  navratri: { src: '/images/festivals/navratri-hero.png', alt: 'Maa Durga with a lion, lamps, flowers, and a kalash', width: 1672, height: 941 },
-  dussehra: { src: '/images/festivals/dussehra-hero.png', alt: 'Rama with a bow among glowing diyas and festive flowers', width: 1672, height: 941 },
-  diwali: { src: '/images/festivals/diwali-hero.png', alt: 'Lakshmi and Ganesh idols surrounded by diyas and offerings', width: 1672, height: 941 },
-  'bhai-dooj': { src: '/images/festivals/bhai-dooj-hero.jpg', alt: 'Sister performing a Bhai Dooj tilak ritual with her brother', width: 768, height: 768 },
-  chhath: { src: '/images/festivals/chhath-hero.png', alt: 'Woman offering water to the sun beside a river with Chhath offerings', width: 1672, height: 941 },
+  navratri: { src: festivalArt('navratri-hero.png'), alt: 'Maa Durga with a lion, lamps, flowers, and a kalash', width: 1672, height: 941 },
+  dussehra: { src: festivalArt('dussehra-hero.png'), alt: 'Rama with a bow among glowing diyas and festive flowers', width: 1672, height: 941 },
+  diwali: { src: festivalArt('diwali-hero.png'), alt: 'Lakshmi and Ganesh idols surrounded by diyas and offerings', width: 1672, height: 941 },
+  'bhai-dooj': { src: festivalArt('bhai-dooj-hero.jpg'), alt: 'Sister performing a Bhai Dooj tilak ritual with her brother', width: 768, height: 768 },
+  chhath: { src: festivalArt('chhath-hero.png'), alt: 'Woman offering water to the sun beside a river with Chhath offerings', width: 1672, height: 941 },
 }
-const item = (id:string,name:string,category:string,categorySlug:string,price:number,unit:string,description:string,festivals:string[]):Product => ({ id, slug:id, name, category, categorySlug, price, unit, description, festivals, image:`/product-art/${id}.svg`, details:['Contents are illustrative and may vary by family and regional tradition.','Operational details will be confirmed before launch.'] })
+const item = (id:string,name:string,category:string,categorySlug:string,price:number,unit:string,description:string,festivals:string[]):Product => ({ id, slug:id, name, category, categorySlug, price, unit, description, festivals, image: productArt(id), details:['Contents are illustrative and may vary by family and regional tradition.','Operational details will be confirmed before launch.'] })
 export const products:Product[] = [
  item('daily-kit','Daily Pooja Starter Kit','Pooja Kits','pooja-kits',699,'18 essentials','A thoughtful foundation for everyday worship.',['daily']),
  item('navratri-kit','Navratri Pooja Essentials Kit','Pooja Kits','pooja-kits',899,'14 essentials','A considered collection for the nine sacred days.',['navratri']),
