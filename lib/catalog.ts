@@ -1,20 +1,20 @@
 export type Product = { id:string; slug:string; name:string; category:string; categorySlug:string; festivals:string[]; price:number; unit:string; description:string; image:string; details:string[] }
 export const categories = [
-  { name:'Pooja Kits', slug:'pooja-kits', description:'Thoughtfully gathered essentials for a complete ritual.', image:'/pooja-hero.png' },
-  { name:'Prasad & Bhog', slug:'prasad-bhog', description:'Ingredients for offering and sharing at home.', image:'/pooja-hero.png' },
-  { name:'Dhoop & Incense', slug:'dhoop-incense', description:'Fragrant essentials for quiet moments.', image:'/pooja-hero.png' },
-  { name:'Diyas & Lamps', slug:'diyas-lamps', description:'Light your altar with timeless forms.', image:'/pooja-hero.png' },
-  { name:'Daily Essentials', slug:'daily-essentials', description:'The small samagri pieces every altar needs.', image:'/pooja-hero.png' },
-  { name:'Gifts', slug:'gifts', description:'Simple gestures for sacred celebrations.', image:'/pooja-hero.png' },
+  { name:'Pooja Kits', slug:'pooja-kits', description:'Thoughtfully gathered essentials for a complete ritual.', image:'/product-art/daily-kit.svg' },
+  { name:'Prasad & Bhog', slug:'prasad-bhog', description:'Ingredients for offering and sharing at home.', image:'/product-art/panchmeva.svg' },
+  { name:'Dhoop & Incense', slug:'dhoop-incense', description:'Fragrant essentials for quiet moments.', image:'/product-art/agarbatti.svg' },
+  { name:'Diyas & Lamps', slug:'diyas-lamps', description:'Light your altar with timeless forms.', image:'/product-art/diyas.svg' },
+  { name:'Daily Essentials', slug:'daily-essentials', description:'The small samagri pieces every altar needs.', image:'/product-art/kumkum.svg' },
+  { name:'Gifts', slug:'gifts', description:'Simple gestures for sacred celebrations.', image:'/product-art/gift-box.svg' },
 ]
 export const festivals = [
-  { name:'Navratri', slug:'navratri', description:'Kalash, chunri, and essentials for nine sacred days.', image:'/pooja-hero.png' },
-  { name:'Dussehra', slug:'dussehra', description:'A considered poojan arrangement for the festival of victory.', image:'/pooja-hero.png' },
-  { name:'Diwali', slug:'diwali', description:'Diyas, Lakshmi–Ganesh essentials, and offerings.', image:'/pooja-hero.png' },
-  { name:'Bhai Dooj', slug:'bhai-dooj', description:'Roli, akshat, and thoughtful festive sets.', image:'/pooja-hero.png' },
-  { name:'Chhath', slug:'chhath', description:'Accessories for offering preparations and family rituals.', image:'/pooja-hero.png' },
+  { name:'Navratri', slug:'navratri', description:'Kalash, chunri, and essentials for nine sacred days.', image:'/product-art/navratri-kit.svg' },
+  { name:'Dussehra', slug:'dussehra', description:'A considered poojan arrangement for the festival of victory.', image:'/product-art/hawan.svg' },
+  { name:'Diwali', slug:'diwali', description:'Diyas, Lakshmi–Ganesh essentials, and offerings.', image:'/product-art/diwali-kit.svg' },
+  { name:'Bhai Dooj', slug:'bhai-dooj', description:'Roli, akshat, and thoughtful festive sets.', image:'/product-art/bhai-dooj-set.svg' },
+  { name:'Chhath', slug:'chhath', description:'Accessories for offering preparations and family rituals.', image:'/product-art/chhath-set.svg' },
 ]
-const item = (id:string,name:string,category:string,categorySlug:string,price:number,unit:string,description:string,festivals:string[]):Product => ({ id, slug:id, name, category, categorySlug, price, unit, description, festivals, image:'/pooja-hero.png', details:['Contents are illustrative and may vary by family and regional tradition.','Operational details will be confirmed before launch.'] })
+const item = (id:string,name:string,category:string,categorySlug:string,price:number,unit:string,description:string,festivals:string[]):Product => ({ id, slug:id, name, category, categorySlug, price, unit, description, festivals, image:`/product-art/${id}.svg`, details:['Contents are illustrative and may vary by family and regional tradition.','Operational details will be confirmed before launch.'] })
 export const products:Product[] = [
  item('daily-kit','Daily Pooja Starter Kit','Pooja Kits','pooja-kits',699,'18 essentials','A thoughtful foundation for everyday worship.',['daily']),
  item('navratri-kit','Navratri Pooja Essentials Kit','Pooja Kits','pooja-kits',899,'14 essentials','A considered collection for the nine sacred days.',['navratri']),
@@ -37,5 +37,11 @@ export const getProduct=(slug:string)=>products.find(p=>p.slug===slug)
 export const getCategory=(slug:string)=>categories.find(c=>c.slug===slug)
 export const getFestival=(slug:string)=>festivals.find(f=>f.slug===slug)
 export const formatPrice=(price:number)=>`₹${price.toLocaleString('en-IN')}`
+export const calculateCartSubtotal=(cart:Record<string,number>)=>products.reduce((sum,p)=>sum+p.price*(cart[p.id]||0),0)
+export const matchesProductQuery=(product:Product,query:string)=>{
+  const normalise=(value:string)=>value.toLowerCase().replace(/[–—-]/g,' ').replace(/\s+/g,' ').trim()
+  const words=normalise(`${product.name} ${product.category} ${product.festivals.join(' ')}`)
+  return words.includes(normalise(query))
+}
 export const guideItems:Record<string,string[]>={Daily:['wicks','kapoor','agarbatti','kumkum'],Navratri:['navratri-kit','hawan','panchmeva'],Diwali:['diwali-kit','diyas','wicks','mishri'],'Bhai Dooj':['bhai-dooj-set','kumkum'],Chhath:['chhath-set','panchmeva']}
-export const faqs=[['What is included in a pooja kit?','Kit contents can be viewed in each product detail. Sample contents are illustrative and may vary by regional tradition.'],['Can I purchase individual samagri items?','Yes. Browse individual daily essentials, incense, lamps, offerings, and gifts.'],['Are these products temple-offered prasad?','No claim is made here. Temple origin and product details will be verified before launch.'],['Can I customise a kit?','Custom kits will be confirmed before launch.']]
+export const faqs=[['What is included in a pooja kit?','This preview shows illustrative kit sizes. Exact itemised contents and quantities still need confirmation.'],['Can I purchase individual samagri items?','Yes. Browse individual daily essentials, incense, lamps, offerings, and gifts.'],['Are these products temple-offered prasad?','No claim is made here. Temple origin and product details will be verified before launch.'],['Can I customise a kit?','Custom kits will be confirmed before launch.']]

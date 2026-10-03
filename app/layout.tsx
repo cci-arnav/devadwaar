@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import './redesign.css'
+import './enhancements.css'
 
 export const metadata: Metadata = {
   title: 'DevaDwaar — Essentials for Every Sacred Occasion',
@@ -26,11 +28,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#FFF8ED',
 }
 
 export default function RootLayout({
