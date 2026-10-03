@@ -1,5 +1,5 @@
 export const brand = {
-  name: 'PoojaSetu',
+  name: 'DevaDwaar',
   tagline: 'Essentials for Every Sacred Occasion',
   colors: { vermilion: '#c44727', maroon: '#681e26', ivory: '#fff9f0', brass: '#b78a42' },
 }

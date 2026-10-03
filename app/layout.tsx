@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PoojaSetu — Essentials for Every Sacred Occasion',
+  title: 'DevaDwaar — Essentials for Every Sacred Occasion',
   description: 'Thoughtfully prepared pooja essentials, festive kits, and prasad ingredients for every sacred occasion.',
   generator: 'v0.app',
   icons: {
