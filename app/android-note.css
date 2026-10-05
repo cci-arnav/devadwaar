@@ -1,0 +1,98 @@
+.android-note {
+  padding: 0 0 68px;
+  background: #f7eddf;
+}
+
+.android-note-inner {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 25px 30px;
+  border: 1px solid #e3d0bc;
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 8px 24px #5b312012;
+}
+
+.android-note-symbol {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f4e4d5;
+  color: var(--maroon);
+}
+
+.android-note-symbol svg {
+  width: 25px;
+  height: 25px;
+  stroke-width: 1.6;
+}
+
+.android-note-copy .eyebrow {
+  margin-bottom: 5px;
+}
+
+.android-note-copy h2 {
+  font-size: clamp(26px, 2.6vw, 33px);
+  line-height: 1.15;
+}
+
+.android-note-copy p:not(.eyebrow) {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.android-note-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 4px 0;
+  border-bottom: 1px solid #c99783;
+  color: var(--vermilion);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.android-note-cta:hover {
+  color: var(--maroon);
+  border-color: var(--maroon);
+}
+
+.android-note-cta svg {
+  width: 17px;
+  height: 17px;
+}
+
+@media (max-width: 700px) {
+  .android-note {
+    padding-bottom: 44px;
+  }
+
+  .android-note-inner {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 11px 15px;
+    padding: 20px;
+  }
+
+  .android-note-symbol {
+    width: 46px;
+    height: 46px;
+  }
+
+  .android-note-copy h2 {
+    font-size: 27px;
+  }
+
+  .android-note-cta {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

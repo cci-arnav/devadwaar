@@ -4,27 +4,16 @@ import './globals.css'
 import './redesign.css'
 import './enhancements.css'
 import './festival-heroes.css'
+import './brand.css'
+import './android-note.css'
 
 export const metadata: Metadata = {
-  title: 'DevaDwaar — Essentials for Every Sacred Occasion',
+  title: 'Aashirvaadam — Essentials for Every Sacred Occasion',
   description: 'Thoughtfully prepared pooja essentials, festive kits, and prasad ingredients for every sacred occasion.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/images/aashirvaadam-logo.png',
+    apple: '/images/aashirvaadam-logo.png',
   },
 }
 
